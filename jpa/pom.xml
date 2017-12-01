@@ -65,8 +65,6 @@
 
 
 		<!-- Querydsl -->
-
-		<!-- https://mvnrepository.com/artifact/com.querydsl/querydsl-jpa -->
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
