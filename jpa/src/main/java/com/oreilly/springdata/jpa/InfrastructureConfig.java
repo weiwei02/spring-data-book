@@ -45,8 +45,7 @@ public class InfrastructureConfig {
 	 * Bootstraps an in-memory HSQL database.
 	 * 
 	 * @return
-	 * @see http 
-	 *      ://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/jdbc.html#jdbc-embedded-database
+	 * @see http://static.springsource.org/spring/docs/3.1.x/spring-framework-reference/html/jdbc.html#jdbc-embedded-database
 	 *      -support
 	 */
 	@Bean

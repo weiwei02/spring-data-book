@@ -55,7 +55,7 @@ public class OrderRepositoryIntegrationTest extends AbstractIntegrationTest {
 	public void createOrder() {
 
 		Customer dave = customerRepository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
-		Product iPad = productRepository.findOne(1L);
+		Product iPad = productRepository.findById(1L).get();
 
 		Order order = new Order(dave, dave.getAddresses().iterator().next());
 		order.add(new LineItem(iPad));

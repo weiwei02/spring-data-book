@@ -62,9 +62,9 @@ public class ProductRepositoryIntegrationTest extends AbstractIntegrationTest {
 		assertThat(page.getContent(), hasSize(1));
 		assertThat(page, Matchers.<Product> hasItems(named("iPad")));
 		assertThat(page.getTotalElements(), is(2L));
-		assertThat(page.isFirstPage(), is(true));
-		assertThat(page.isLastPage(), is(false));
-		assertThat(page.hasNextPage(), is(true));
+		assertThat(page.getNumber(), is(1));
+		assertThat(page.getTotalPages(), is(1));
+		assertThat(page.hasNext(), is(true));
 	}
 
 	@Test

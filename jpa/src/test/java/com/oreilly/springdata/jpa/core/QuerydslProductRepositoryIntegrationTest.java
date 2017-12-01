@@ -18,19 +18,19 @@ package com.oreilly.springdata.jpa.core;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
+import com.querydsl.core.types.Predicate;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.test.context.ContextConfiguration;
 
-import com.mysema.query.types.Predicate;
 import com.oreilly.springdata.jpa.AbstractIntegrationTest;
 import com.oreilly.springdata.jpa.ApplicationConfig;
 
 /**
  * Integration test showing the usage of Querydsl {@link Predicate} to query repositories implementing
- * {@link QueryDslPredicateExecutor}.
+ * {@link QuerydslPredicateExecutor}.
  * 
  * @author Oliver Gierke
  */
@@ -45,7 +45,7 @@ public class QuerydslProductRepositoryIntegrationTest extends AbstractIntegratio
 	@Test
 	public void findProductsByQuerydslPredicate() {
 
-		Product iPad = repository.findOne(product.name.eq("iPad"));
+		Product iPad = repository.findOne(product.name.eq("iPad")).get();
 		Predicate tablets = product.description.contains("tablet");
 
 		Iterable<Product> result = repository.findAll(tablets);
