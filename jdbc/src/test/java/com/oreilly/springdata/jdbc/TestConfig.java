@@ -22,10 +22,10 @@ public class TestConfig extends ApplicationConfig {
 	 * (non-Javadoc)
 	 * @see com.oreilly.springdata.jdbc.ApplicationConfig#dataSource()
 	 */
-	@Bean
-	@Override
-	public DataSource dataSource() {
-		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL).addScript("classpath:sql/schema.sql")
-				.addScript("classpath:sql/test-data.sql").build();
-	}
+//	@Bean
+//	@Override
+//	public DataSource dataSource() {
+//		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL).addScript("classpath:sql/schema.sql")
+//				.addScript("classpath:sql/test-data.sql").build();
+//	}
 }

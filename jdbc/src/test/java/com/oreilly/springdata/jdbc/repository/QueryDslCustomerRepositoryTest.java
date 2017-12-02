@@ -1,48 +1,29 @@
 package com.oreilly.springdata.jdbc.repository;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.sql.DataSource;
-
+import com.oreilly.springdata.jdbc.TestConfig;
+import com.oreilly.springdata.jdbc.domain.Address;
+import com.oreilly.springdata.jdbc.domain.Customer;
+import com.oreilly.springdata.jdbc.domain.EmailAddress;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.data.jdbc.query.QueryDslJdbcTemplate;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mysema.query.Tuple;
-import com.mysema.query.sql.HSQLDBTemplates;
-import com.mysema.query.sql.SQLQuery;
-import com.mysema.query.sql.SQLQueryImpl;
-import com.mysema.query.sql.SQLTemplates;
-import com.mysema.query.types.MappingProjection;
-import com.mysema.query.types.QBean;
-import com.oreilly.springdata.jdbc.TestConfig;
-import com.oreilly.springdata.jdbc.domain.Address;
-import com.oreilly.springdata.jdbc.domain.Customer;
-import com.oreilly.springdata.jdbc.domain.EmailAddress;
-import com.oreilly.springdata.jdbc.domain.QAddress;
-import com.oreilly.springdata.jdbc.domain.QCustomer;
+import javax.sql.DataSource;
+import java.util.List;
+
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author Thomas Risberg
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { TestConfig.class })
-@Transactional
 @DirtiesContext
 public class QueryDslCustomerRepositoryTest {
 
@@ -126,7 +107,7 @@ public class QueryDslCustomerRepositoryTest {
 		assertThat(result, is(nullValue()));
 	}
 
-	@Test
+	/*@Test
 	public void directQueryDslUseExtractingList() {
 
 		Connection connection = DataSourceUtils.getConnection(dataSource);
@@ -200,5 +181,5 @@ public class QueryDslCustomerRepositoryTest {
 		assertThat(results.get(0), notNullValue());
 		assertThat(results.get(0).getFirstName(), is("John"));
 		assertThat(results.get(0).getEmailAddress().toString(), is("john@doe.com"));
-	}
+	}*/
 }

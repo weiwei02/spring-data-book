@@ -1,11 +1,14 @@
 package com.oreilly.springdata.jdbc.domain;
 
+import lombok.EqualsAndHashCode;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  */
+@EqualsAndHashCode(exclude = {"addresses"}, callSuper = false)
 public class Customer extends AbstractEntity {
 
 	private String firstName;
@@ -48,6 +51,7 @@ public class Customer extends AbstractEntity {
 	public void clearAddresses() {
 		this.addresses.clear();
 	}
+
 
 	@Override
 	public String toString() {

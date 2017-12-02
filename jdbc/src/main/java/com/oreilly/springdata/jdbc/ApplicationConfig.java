@@ -2,6 +2,9 @@ package com.oreilly.springdata.jdbc;
 
 import javax.sql.DataSource;
 
+import com.querydsl.sql.HSQLDBTemplates;
+import com.querydsl.sql.SQLQueryFactory;
+import com.querydsl.sql.SQLTemplates;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -35,7 +38,14 @@ class ApplicationConfig {
 		return ds;
 	}
 
-	@Bean
+	@Bean("SQLQueryFactory")
+	public SQLQueryFactory sqlQueryFactory(){
+		SQLTemplates sqlTemplates = new HSQLDBTemplates();
+		com.querydsl.sql.Configuration configuration = new com.querydsl.sql.Configuration(sqlTemplates);
+		return new SQLQueryFactory(configuration, dataSource());
+	}
+
+	@Bean("transactionManager")
 	public PlatformTransactionManager transactionManager() {
 		DataSourceTransactionManager txManager = new DataSourceTransactionManager();
 		txManager.setDataSource(dataSource());
